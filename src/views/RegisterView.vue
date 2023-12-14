@@ -2,12 +2,21 @@
 import HeadNavigation from "@/components/head/HeadNavigation.vue";
 import {ref} from "vue";
 import Passage from "@/components/passage/passage.vue";
-
-const formName = ref('');
-const account = ref('');
-const password = ref('');
+import {useUserInfoStore} from "@/stores/UserInfo";
+import axios from "axios";
+const store = useUserInfoStore()
 function submit(){
-
+  axios({
+    url:'',
+    method:"post",
+    data:{
+      userId:store.userId,
+      userName:store.userName,
+      userPassword:store.userPassword
+    }
+  }).then(res =>{
+    console.log("注册")
+  })
 }
 function reset(){
 
@@ -28,16 +37,16 @@ function reset(){
         <el-main class="main">
           <el-form label-position="top">
            <el-form-item label="用户名" >
-             <el-input v-model="formName" type="text" autocomplete="on" class="form"></el-input>
+             <el-input v-model="store.userName" type="text" autocomplete="on" class="form"></el-input>
            </el-form-item>
            <el-form-item label="账号">
-             <el-input v-model="account" type="text" autocomplete="on" class="form"></el-input>
+             <el-input v-model="store.userId" type="text" autocomplete="on" class="form"></el-input>
            </el-form-item>
            <el-form-item label="密码">
-             <el-input v-model="password" type="password" autocomplete="off" class="form"></el-input>
+             <el-input v-model="store.userPassword" type="password" autocomplete="off" class="form"></el-input>
            </el-form-item>
             <el-form-item label="再次输入">
-              <el-input v-model="password" type="password" autocomplete="off" class="form"></el-input>
+              <el-input  type="password" autocomplete="off" class="form"></el-input>
             </el-form-item>
           </el-form>
           <div class="button" >

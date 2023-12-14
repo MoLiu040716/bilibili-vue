@@ -2,7 +2,7 @@
 import {reactive, ref, toRefs} from "vue";
   const state = reactive({
     circleUrl:
-        'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+        'src/assets/imges/test.jpeg'
   })
 
   const circleUrl = toRefs(state)
@@ -10,7 +10,7 @@ import {reactive, ref, toRefs} from "vue";
 
 <template>
   <div>
-    <el-avatar :size="40" :src="circleUrl" />
+    <el-avatar :size="40" :src="state.circleUrl" />
   </div>
 </template>
 

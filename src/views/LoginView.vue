@@ -1,15 +1,19 @@
-
-
 <script setup>
-import {ref} from "vue";
-import HeadNavigation from "@/components/head/HeadNavigation.vue";
 
-const user = ref({
-  username: '',
-  password: ''
-})
+import HeadNavigation from "@/components/head/HeadNavigation.vue";
+import {useUserInfoStore} from "@/stores/UserInfo";
+import axios from "axios";
+
+const store = useUserInfoStore()
 function login(){
-  window.location.href="http://localhost:5173/"
+  axios({
+    url:'',
+    method:'post',
+    data:{
+      userId:store.userId,
+      userPassword:store.userPassword
+    }
+  })
 }
 </script>
 <template>
@@ -23,10 +27,10 @@ function login(){
          <t1 class="text" >登录</t1>
          <el-form label-position="right" class="input">
            <el-form-item label="账号" >
-             <el-input type="text" v-model="user.username"  size="large"></el-input>
+             <el-input type="text" v-model="store.userId"  size="large"></el-input>
            </el-form-item>
            <el-form-item label="密码" >
-             <el-input  type="password" v-model="user.password" size="large"></el-input>
+             <el-input  type="password" v-model="store.userPassword" size="large"></el-input>
            </el-form-item>
          </el-form>
          <el-button type="primary" class="button" @click="login()">登录</el-button>
