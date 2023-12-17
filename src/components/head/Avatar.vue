@@ -1,16 +1,15 @@
 <script setup>
-import {reactive, ref, toRefs} from "vue";
-  const state = reactive({
-    circleUrl:
-        'src/assets/imges/test.jpeg'
-  })
 
-  const circleUrl = toRefs(state)
+import {useUserInfoStore} from "@/stores/UserInfo";
+
+const userInfoStore = useUserInfoStore()
+
+
 </script>
 
 <template>
   <div>
-    <el-avatar :size="40" :src="state.circleUrl" />
+    <el-avatar :size="40" :src="userInfoStore.userImg" />
   </div>
 </template>
 

@@ -4,6 +4,7 @@ import {ref} from "vue";
 import Passage from "@/components/passage/passage.vue";
 import {useUserInfoStore} from "@/stores/UserInfo";
 import axios from "axios";
+import UploadImg from "@/components/upload/UploadImg.vue";
 const store = useUserInfoStore()
 function submit(){
   axios({
@@ -17,6 +18,8 @@ function submit(){
   }).then(res =>{
     console.log("注册")
   })
+
+
 }
 function reset(){
 
@@ -32,7 +35,7 @@ function reset(){
       <el-container>
         <el-aside width="200px" class="aside">
           <t3 class="t3">上传头像</t3>
-          <passage class="passage"></passage>
+          <upload-img class="passage"></upload-img>
         </el-aside>
         <el-main class="main">
           <el-form label-position="top">

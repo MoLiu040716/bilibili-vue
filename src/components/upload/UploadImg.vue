@@ -1,10 +1,24 @@
+<template>
+  <el-upload
+      class="avatar-uploader"
+      action="http://localhost:8082/bilibili_api/uploadImg"
+      :show-file-list="false"
+      :on-success="handleAvatarSuccess"
+      :before-upload="beforeAvatarUpload"
+  >
+    <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+  </el-upload>
+</template>
+
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 
 import type { UploadProps } from 'element-plus'
-
+import {useUserInfoStore} from "../../stores/UserInfo";
+const userInfoStore = useUserInfoStore()
 const imageUrl = ref('')
 
 const handleAvatarSuccess: UploadProps['onSuccess'] = (
@@ -12,26 +26,20 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
     uploadFile
 ) => {
   imageUrl.value = URL.createObjectURL(uploadFile.raw!)
+  userInfoStore.userImg=imageUrl.value
 }
 
-
+const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
+  // if (rawFile.type !== 'image/jpeg') {
+  //   ElMessage.error('Avatar picture must be JPG format!')
+  //   return false
+  // } else if (rawFile.size / 1024 / 1024 > 2) {
+  //   ElMessage.error('Avatar picture size can not exceed 2MB!')
+  //   return false
+  // }
+  return true
+}
 </script>
-<template>
-  <el-upload
-      class="avatar-uploader"
-      action="https://localhost/upload"
-      :show-file-list="true"
-      :on-success="handleAvatarSuccess"
-      :before-upload="beforeAvatarUpload"
-  >
-    <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-
-    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
-  </el-upload>
-
-</template>
-
-
 
 <style scoped>
 .avatar-uploader .avatar {

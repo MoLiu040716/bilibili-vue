@@ -2,6 +2,8 @@
 import { reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import {useUserInfoStore} from "../../stores/UserInfo";
+import UploadImg from "../upload/UploadImg.vue";
+import axios from "axios";
 interface RuleForm {
   name: string
   sex: string
@@ -43,6 +45,13 @@ function submitForm(){
   userInfoStore.userPhone=ruleForm.phone
   userInfoStore.signature=ruleForm.signature
   userInfoStore.style= ruleForm.style
+
+  // 上传用户编辑的信息
+  axios({
+    url:'',
+    method:'post',
+    data:{}
+  })
   
 }
 const resetForm = (formEl: FormInstance | undefined) => {
@@ -57,6 +66,8 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
 </script>
 
 <template>
+
+  <UploadImg class="upload"></UploadImg>
   <el-form
       ref="ruleFormRef"
       :model="ruleForm"
@@ -71,8 +82,8 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
     </el-form-item>
     <el-form-item label="性别" prop="region">
       <el-select v-model="ruleForm.sex" placeholder="sex">
-        <el-option label="男" value="男" />
-        <el-option label="女 " value="女" />
+        <el-option label="男" value=1 />
+        <el-option label="女" value=0 />
       </el-select>
     </el-form-item>
     <el-form-item label="电话" prop="count">
@@ -101,3 +112,9 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
   </el-form>
 </template>
 
+<style scoped>
+.upload{
+  margin-left: 8rem;
+  margin-bottom: 1rem;
+}
+</style>

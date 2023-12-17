@@ -1,7 +1,7 @@
 <script setup>
 import HeadNavigation from "@/components/head/HeadNavigation.vue";
 import {ref} from "vue";
-import Upload from "@/components/Upload.vue";
+import Upload from "@/components/upload/Upload.vue";
 import IndividualHead from "@/components/head/IndividualHead.vue";
 const username=ref("未命名")
 </script>
