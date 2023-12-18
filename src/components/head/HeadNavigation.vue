@@ -7,11 +7,10 @@ import Avatar from "@/components/head/Avatar.vue";
       <p class="logo">Video</p>
       <ul>
         <li><RouterLink to="/" class="router-link-active">首页</RouterLink></li>
-        <li><RouterLink to="/authoringTool" class="router-link-active">创作工具</RouterLink></li>
-        <li><RouterLink to="/" class="router-link-active">创作者中心</RouterLink></li>
+        <li><RouterLink to="/advertisement" class="router-link-active">广告中心</RouterLink></li>
+        <li><RouterLink to="/author" class="router-link-active">创作者中心</RouterLink></li>
         <li><RouterLink to="/" class="router-link-active">社交中心</RouterLink></li>
-        <li><RouterLink to="/"  class="router-link-active">关注</RouterLink></li>
-        <li><RouterLink to="/"  class="router-link-active">社区</RouterLink></li>
+        <li><RouterLink to="/communityLogin"  class="router-link-active">社区</RouterLink></li>
         <li><RouterLink to="/login" class="router-link-active">登录</RouterLink></li>
         <li><RouterLink to="/register" class="router-link-active" >注册</RouterLink></li>
         <li><RouterLink to="/individual"  class="router-link-active">

@@ -1,6 +1,18 @@
 <script setup>
 import HeadNavigation from "@/components/head/HeadNavigation.vue";
 import IndividualHead from "@/components/head/IndividualHead.vue";
+import axios from "axios";
+import {ref} from "vue";
+const followList=ref([])
+axios({
+  url:'',
+  method:"post",
+  data:{
+
+  }
+}).then(res =>{
+  followList.value=res.data
+})
 </script>
 
 <template>

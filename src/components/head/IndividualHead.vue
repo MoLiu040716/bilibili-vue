@@ -6,7 +6,7 @@ import Avatar from "@/components/head/Avatar.vue";
 <template>
   <div class="mainheader">
     <Avatar class="avatar"></Avatar>
-    <p class="name">{{username}}</p>
+<!--    <p class="name">{{username}}</p>-->
   </div>
   <div class="body">
     <ul >
@@ -14,6 +14,7 @@ import Avatar from "@/components/head/Avatar.vue";
       <li><RouterLink to="/edit" class="router-link-active">编辑资料</RouterLink></li>
       <li><RouterLink to="/follow" class="router-link-active">关注</RouterLink></li>
       <li><RouterLink to="/fan" class="router-link-active">粉丝列表</RouterLink></li>
+      <li><RouterLink to="/record" class="router-link-active">历史记录</RouterLink></li>
     </ul>
   </div>
 </template>

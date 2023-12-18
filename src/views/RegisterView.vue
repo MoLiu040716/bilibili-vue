@@ -1,7 +1,7 @@
 <script setup>
 import HeadNavigation from "@/components/head/HeadNavigation.vue";
 import {ref} from "vue";
-import Passage from "@/components/passage/passage.vue";
+
 import {useUserInfoStore} from "@/stores/UserInfo";
 import axios from "axios";
 import UploadImg from "@/components/upload/UploadImg.vue";

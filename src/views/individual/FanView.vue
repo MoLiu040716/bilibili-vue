@@ -2,6 +2,19 @@
 
 import HeadNavigation from "@/components/head/HeadNavigation.vue";
 import IndividualHead from "@/components/head/IndividualHead.vue";
+import {ref} from "vue";
+import axios from "axios";
+const fanList=ref([])
+
+axios({
+  url:'',
+  method:"post",
+  data:{
+
+  }
+}).then(res =>{
+  fanList.value=res.data
+})
 </script>
 
 <template>
